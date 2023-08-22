@@ -15,9 +15,6 @@ func NewQuestion() *Question {
 	}
 }
 
-func (q *Question) addResult(ans string) {
-}
-
 func (q *Question) AskSelectQuestion(label string, items []string) error {
 	prompt := promptui.Select{
 		Label: label,
