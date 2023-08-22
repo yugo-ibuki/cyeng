@@ -12,8 +12,14 @@ var rootCmd = &cobra.Command{
 	Short: "You can get the fortune cookie message from the command line.",
 	Run: func(cmd *cobra.Command, args []string) {
 		q := question.NewQuestion()
-		q.AskInputQuestion("What is your name?")
-		q.AskSelectQuestion("What is your favorite food?", []string{"Ramen", "Carry", "Sushi"})
+		if err := q.AskInputQuestion("What is your name?"); err != nil {
+			fmt.Println("error occurs...: ", err)
+			os.Exit(1)
+		}
+		if err := q.AskSelectQuestion("What is your favorite food?", []string{"Ramen", "Carry", "Sushi"}); err != nil {
+			fmt.Println("error occurs...: ", err)
+			os.Exit(1)
+		}
 
 		fmt.Println("answer: ", q.Answer)
 	},

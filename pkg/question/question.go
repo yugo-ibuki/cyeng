@@ -3,7 +3,6 @@ package question
 import (
 	"fmt"
 	"github.com/manifoldco/promptui"
-	"os"
 )
 
 type Question struct {
@@ -17,10 +16,9 @@ func NewQuestion() *Question {
 }
 
 func (q *Question) addResult(ans string) {
-	q.Answer = append(q.Answer, ans)
 }
 
-func (q *Question) AskSelectQuestion(label string, items []string) {
+func (q *Question) AskSelectQuestion(label string, items []string) error {
 	prompt := promptui.Select{
 		Label: label,
 		Items: items,
@@ -29,13 +27,14 @@ func (q *Question) AskSelectQuestion(label string, items []string) {
 	_, result, err := prompt.Run()
 	if err != nil {
 		fmt.Printf("Prompt failed %v\n", err)
-		os.Exit(1)
+		return err
 	}
 
-	q.addResult(result)
+	q.Answer = append(q.Answer, result)
+	return nil
 }
 
-func (q *Question) AskInputQuestion(label string) {
+func (q *Question) AskInputQuestion(label string) error {
 	prompt := promptui.Prompt{
 		Label: label,
 	}
@@ -43,8 +42,9 @@ func (q *Question) AskInputQuestion(label string) {
 	result, err := prompt.Run()
 	if err != nil {
 		fmt.Printf("Prompt failed %v\n", err)
-		os.Exit(1)
+		return err
 	}
 
-	q.addResult(result)
+	q.Answer = append(q.Answer, result)
+	return nil
 }
