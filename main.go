@@ -1,6 +1,6 @@
 package main
 
-import "fortune-golling/cmd"
+import "cyeng/cmd"
 
 func main() {
 	cmd.Execute()

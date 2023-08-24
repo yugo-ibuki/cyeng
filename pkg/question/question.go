@@ -6,42 +6,41 @@ import (
 )
 
 type Question struct {
-	Answer []string
+	Corrections []Corrections
+}
+
+type Corrections struct {
+	Question    string
+	SelectedAns string
+	CorrectAns  string
+	IsCorrect   bool
 }
 
 func NewQuestion() *Question {
 	return &Question{
-		Answer: []string{},
+		Corrections: []Corrections{},
 	}
 }
 
-func (q *Question) AskSelectQuestion(label string, items []string) error {
+func (q *Question) AskSelectQuestion(label string, items []string, correct string) error {
 	prompt := promptui.Select{
 		Label: label,
 		Items: items,
 	}
 
 	_, result, err := prompt.Run()
+	fmt.Println(result)
 	if err != nil {
 		fmt.Printf("Prompt failed %v\n", err)
 		return err
 	}
 
-	q.Answer = append(q.Answer, result)
-	return nil
-}
+	q.Corrections = append(q.Corrections, Corrections{
+		Question:    label,
+		SelectedAns: result,
+		CorrectAns:  correct,
+		IsCorrect:   result == correct,
+	})
 
-func (q *Question) AskInputQuestion(label string) error {
-	prompt := promptui.Prompt{
-		Label: label,
-	}
-
-	result, err := prompt.Run()
-	if err != nil {
-		fmt.Printf("Prompt failed %v\n", err)
-		return err
-	}
-
-	q.Answer = append(q.Answer, result)
 	return nil
 }
