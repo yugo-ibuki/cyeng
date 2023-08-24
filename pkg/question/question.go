@@ -29,7 +29,6 @@ func (q *Question) AskSelectQuestion(label string, items []string, correct strin
 	}
 
 	_, result, err := prompt.Run()
-	fmt.Println(result)
 	if err != nil {
 		fmt.Printf("Prompt failed %v\n", err)
 		return err
