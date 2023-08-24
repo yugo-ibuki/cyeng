@@ -1,0 +1,72 @@
+[
+  {
+    "question": "The administration has successfully (　　　　) the terrorist organization.",
+    "selections": [
+      "disarrayed",
+      "dismantled",
+      "dissected",
+      "discriminated"
+    ],
+    "correct": "dismantled"
+  },
+  {
+    "question": "The prime minister was criticized for his (　　　) interference in the elections to be held today.",
+    "selections": [
+      "unrelenting",
+      "unfeasible",
+      "undue",
+      "unequivocal"
+    ],
+    "correct": "undue"
+  },
+  {
+    "question": "It took more than eight years to confirm the truth of Professor Mochizuki’s paper due to the (　　　) nature of the theory.",
+    "selections": [
+      "esoteric",
+      "rubric",
+      "kinetic",
+      "fanatic"
+    ],
+    "correct": "esoteric"
+  },
+  {
+    "question": "Many drugs that cause (　　　) are subject to regulation due to their addictive nature.",
+    "selections": [
+      "euphoria",
+      "impasse",
+      "reminiscence",
+      "resurgence"
+    ],
+    "correct": "euphoria"
+  },
+  {
+    "question": "The magazine has long been enthusiastically supported by (　　　) readers for its accurate commentary.",
+    "selections": [
+      "lush",
+      "savvy",
+      "arcane",
+      "dire"
+    ],
+    "correct": "savvy"
+  },
+  {
+    "question": "The woman who accepted the offer on the street corner was (　　　) by the possibility of making a lot of money right away.",
+    "selections": [
+      "optimized",
+      "tantalized",
+      "revitalized",
+      "jeopardized"
+    ],
+    "correct": "tantalized"
+  },
+  {
+    "question": "The prosecutor presented (　　　) evidence that the woman had hacked into the server and leaked customer information.",
+    "selections": [
+      "incomparable",
+      "laudable",
+      "practicable",
+      "tangible"
+    ],
+    "correct": "tangible"
+  }
+]
