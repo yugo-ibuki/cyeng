@@ -36,7 +36,7 @@ var rootCmd = &cobra.Command{
 		}
 
 		// check if quiz count is greater than data length
-		if len(d) < quizCount {
+		if quizCount != 0 && len(d) < quizCount {
 			fmt.Println("quiz count is greater than data length...")
 			os.Exit(1)
 		}
@@ -69,7 +69,7 @@ var rootCmd = &cobra.Command{
 
 func init() {
 	rootCmd.Flags().StringVarP(&path, "path", "p", "./data.json", "path to json file")
-	rootCmd.Flags().IntVar(&quizCount, "quizCount", 10, "quiz count")
+	rootCmd.Flags().IntVar(&quizCount, "quizCount", 0, "quiz count")
 }
 
 func Execute() {
