@@ -11,7 +11,7 @@ import (
 )
 
 var path string
-var quizCount int
+var count int
 
 type Data struct {
 	Question   string   `json:"question"`
@@ -36,7 +36,7 @@ var rootCmd = &cobra.Command{
 		}
 
 		// check if quiz count is greater than data length
-		if quizCount != 0 && len(d) < quizCount {
+		if count != 0 && len(d) < count {
 			fmt.Println("quiz count is greater than data length...")
 			os.Exit(1)
 		}
@@ -65,7 +65,7 @@ var rootCmd = &cobra.Command{
 
 func init() {
 	rootCmd.Flags().StringVarP(&path, "path", "p", "./data.json", "path to json file")
-	rootCmd.Flags().IntVar(&quizCount, "quizCount", 0, "quiz count")
+	rootCmd.Flags().IntVarP(&count, "count", "c", 0, "quiz count")
 }
 
 func Execute() {
