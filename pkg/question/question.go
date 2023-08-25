@@ -6,10 +6,10 @@ import (
 )
 
 type Question struct {
-	Corrections []Corrections
+	Corrections []Correction
 }
 
-type Corrections struct {
+type Correction struct {
 	Question    string
 	SelectedAns string
 	CorrectAns  string
@@ -18,7 +18,7 @@ type Corrections struct {
 
 func NewQuestion() *Question {
 	return &Question{
-		Corrections: []Corrections{},
+		Corrections: []Correction{},
 	}
 }
 
@@ -34,7 +34,7 @@ func (q *Question) AskSelectQuestion(label string, items []string, correct strin
 		return err
 	}
 
-	q.Corrections = append(q.Corrections, Corrections{
+	q.Corrections = append(q.Corrections, Correction{
 		Question:    label,
 		SelectedAns: result,
 		CorrectAns:  correct,
