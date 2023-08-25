@@ -23,7 +23,7 @@ var rootCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		data, err := os.ReadFile(path)
 		if err != nil {
-			fmt.Println("error occurs...: ", err)
+			fmt.Println("no valid path...", err)
 			os.Exit(1)
 		}
 
@@ -52,7 +52,7 @@ var rootCmd = &cobra.Command{
 }
 
 func init() {
-	rootCmd.Flags().StringVarP(&path, "path", "p", "./data/fortune.json", "path to json file")
+	rootCmd.Flags().StringVarP(&path, "path", "p", "./data.json", "path to json file")
 }
 
 func Execute() {
