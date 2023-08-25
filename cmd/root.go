@@ -6,10 +6,12 @@ import (
 	"fmt"
 	"github.com/samber/lo"
 	"github.com/spf13/cobra"
+	"math/rand"
 	"os"
 )
 
 var path string
+var quizCount int
 
 type Data struct {
 	Question   string   `json:"question"`
@@ -33,8 +35,22 @@ var rootCmd = &cobra.Command{
 			os.Exit(1)
 		}
 
+		// check if quiz count is greater than data length
+		if len(d) < quizCount {
+			fmt.Println("quiz count is greater than data length...")
+			os.Exit(1)
+		}
+
+		// shuffle the data
+		rand.Shuffle(len(d), func(i, j int) {
+			d[i], d[j] = d[j], d[i]
+		})
+
 		q := question.NewQuestion()
-		for _, v := range d {
+		// default quiz number is 10 or if less than 10, then the length of data
+		quizCount := lo.Ternary(len(d) > 10, 10, len(d))
+		for i := 0; i < quizCount; i++ {
+			v := d[i]
 			if err := q.AskSelectQuestion(v.Question, v.Selections, v.Correct); err != nil {
 				fmt.Println("error occurs...: ", err)
 				os.Exit(1)
@@ -53,6 +69,7 @@ var rootCmd = &cobra.Command{
 
 func init() {
 	rootCmd.Flags().StringVarP(&path, "path", "p", "./data.json", "path to json file")
+	rootCmd.Flags().IntVar(&quizCount, "quizCount", 10, "quiz count")
 }
 
 func Execute() {
