@@ -58,11 +58,7 @@ var rootCmd = &cobra.Command{
 		}
 
 		for _, c := range q.Corrections {
-			fmt.Println("Question: ", c.Question)
-			fmt.Println("Selected Answer: ", c.SelectedAns)
-			fmt.Println("Correct Answer: ", c.CorrectAns)
-			fmt.Println("You are: ", lo.Ternary(c.IsCorrect, "correct", "incorrect"))
-			fmt.Println(" ----------------------------------------- ")
+			printQuiz(c)
 		}
 	},
 }
@@ -77,4 +73,12 @@ func Execute() {
 		fmt.Print("error occurs...: ", err)
 		os.Exit(1)
 	}
+}
+
+func printQuiz(c question.Correction) {
+	fmt.Println("Question: ", c.Question)
+	fmt.Println("Selected Answer: ", c.SelectedAns)
+	fmt.Println("Correct Answer: ", c.CorrectAns)
+	fmt.Println("You are: ", lo.Ternary(c.IsCorrect, "correct", "incorrect"))
+	fmt.Println(" ----------------------------------------- ")
 }
