@@ -1,6 +1,6 @@
 package main
 
-import "cyeng/cmd"
+import "github.com/yugo-ibuki/cyeng/cmd"
 
 func main() {
 	cmd.Execute()

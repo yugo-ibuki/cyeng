@@ -1,11 +1,11 @@
 package cmd
 
 import (
-	"cyeng/pkg/question"
 	"encoding/json"
 	"fmt"
 	"github.com/samber/lo"
 	"github.com/spf13/cobra"
+	"github.com/yugo-ibuki/cyeng/pkg/question"
 	"math/rand"
 	"os"
 )

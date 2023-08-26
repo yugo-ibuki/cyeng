@@ -1,4 +1,4 @@
-module cyeng
+module github.com/yugo-ibuki/cyeng
 
 go 1.20
 
