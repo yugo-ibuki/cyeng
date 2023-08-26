@@ -5,7 +5,7 @@ this is a tool to help you to study English vocabulary.
 ## Installation
 
 ```bash
-go install github.com/yugo-ibuki/cyeng
+go install github.com/yugo-ibuki/cyeng@latest
 ```
 
 ## Usage
